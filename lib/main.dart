@@ -9,7 +9,7 @@ void main() {
   GetStorage.init();
   runApp(
     GetMaterialApp(
-      title: "Application",
+      title: "Peminjaman",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
