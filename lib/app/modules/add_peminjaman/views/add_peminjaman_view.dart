@@ -1,3 +1,4 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -16,7 +17,6 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
       body: Center(
           child: Form(key: controller.formKey,child: Column(
             children: [
-              Text("Buku yang Dipinjam : ${Get.parameters['judul']}"),
               TextFormField(
                 controller: controller.tanggalpinjamController,
                 decoration: InputDecoration(hintText: "Masukkan Tanggal Pinjam"),
@@ -27,13 +27,15 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                   return null;
                 },
               ),
-              TextFormField(
+              DateTimePicker(
                 controller: controller.tanggalkembaliController,
-                decoration: InputDecoration(hintText: "Masukkan Tanggal Kembali"),
-                validator: (value){
-                  if (value!.length < 2) {
-                    return "tanggal kembali tidak boleh kosong";
-                  }
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                dateLabelText: 'Tanggal Kembali',
+                dateMask: 'yyyy-MM-dd',
+                onChanged: (val) => print(val),
+                validator: (val) {
+                  print(val);
                   return null;
                 },
               ),
