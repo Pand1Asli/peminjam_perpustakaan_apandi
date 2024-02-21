@@ -6,6 +6,8 @@ import '../modules/book/bindings/book_binding.dart';
 import '../modules/book/views/book_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/intro/bindings/intro_binding.dart';
+import '../modules/intro/views/intro_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
@@ -18,7 +20,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.INTRO;
 
   static final routes = [
     GetPage(
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.ADD_PEMINJAMAN,
       page: () => const AddPeminjamanView(),
       binding: AddPeminjamanBinding(),
+    ),
+    GetPage(
+      name: _Paths.INTRO,
+      page: () => const IntroView(),
+      binding: IntroBinding(),
     ),
   ];
 }
