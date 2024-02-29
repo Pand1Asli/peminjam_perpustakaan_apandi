@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
@@ -21,14 +20,21 @@ class IntroView extends GetView<IntroController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/LogoPerpusAsli.png'),
-              SizedBox(height: 5),
+              Image.asset(
+                'assets/LogoPerpusAsli.png',
+                height: 300,
+                width: 300,
+              ),
+              SizedBox(height: 40),
               ElevatedButton(
-                onPressed: ()=>Get.toNamed(Routes.LOGIN),
+                onPressed: () => Get.toNamed(Routes.LOGIN),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                  textStyle: TextStyle(fontSize: 20),
+                  textStyle: TextStyle(fontSize: 40),
                   backgroundColor: Color(0XFFFF7A00),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Sesuaikan nilai border radius sesuai keinginan
+                  ),
                 ),
                 child: Text('NEXT'),
               ),
