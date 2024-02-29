@@ -22,7 +22,7 @@ class IntroView extends GetView<IntroController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('assets/LogoPerpusAsli.png'),
-              SizedBox(height: 225),
+              SizedBox(height: 5),
               ElevatedButton(
                 onPressed: ()=>Get.toNamed(Routes.LOGIN),
                 style: ElevatedButton.styleFrom(

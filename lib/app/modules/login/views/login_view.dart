@@ -14,12 +14,13 @@ class LoginView extends GetView<LoginController> {
         title: const Text('LoginView'),
         centerTitle: true,
       ),
+      backgroundColor: Colors.black,
       body: Center(
           child: Form(key: controller.formKey,
               child: Column(
             children: [
               Image.asset(
-                'assets/',
+                'assets/icon.png',
                 width: 200,
                 height: 200,
               ),
