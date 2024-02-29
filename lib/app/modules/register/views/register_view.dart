@@ -11,13 +11,13 @@ class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: Colors.black,
       body: Center(
           child: Form(
               key: controller.formKey,
               child: Column(
                 children: [
-                  SizedBox(height: 170),
+                  SizedBox(height: 150),
                   Text(
                     "SIGN UP",
                     style: TextStyle(
@@ -60,6 +60,7 @@ class RegisterView extends GetView<RegisterController> {
                       },
                     ),
                   ),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -76,7 +77,7 @@ class RegisterView extends GetView<RegisterController> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
-                      controller: controller.namaController,
+                      controller: controller.usernameController,
                       decoration: InputDecoration(
                         hintText: "Masukkan Username",
                         filled: true,
@@ -87,43 +88,115 @@ class RegisterView extends GetView<RegisterController> {
                       ),
                       validator: (value) {
                         if (value!.length < 2) {
-                          return "nama tidak boleh kosong";
+                          return "username tidak boleh kosong";
                         }
                         return null;
                       },
                     ),
                   ),
-                  TextFormField(
-                    controller: controller.telpController,
-                    decoration: InputDecoration(hintText: "Masukkan Telp"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "telp tidak boleh kosong";
-                      }
-                      return null;
-                    },
+                  SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 35),
+                      Text(
+                        "Telepon",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  TextFormField(
-                    controller: controller.alamatController,
-                    decoration: InputDecoration(hintText: "Masukkan Alamat"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "alamat tidak boleh kosong";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    controller: controller.passwordController,
-                    decoration: InputDecoration(hintText: "Masukkan Password"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "tahun terbit tidak boleh kosong";
-                      }
-                      return null;
-                    },
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: controller.telpController,
+                      decoration: InputDecoration(
+                        hintText: "Masukkan Telp",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.length < 2) {
+                          return "telepon tidak boleh kosong";
+                        }
+                        return null;
+                      },
+                    ),
                   ),
                   SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 35),
+                      Text(
+                        "alamat",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: controller.alamatController,
+                      decoration: InputDecoration(
+                        hintText: "Masukkan Alamat",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.length < 2) {
+                          return "alamat tidak boleh kosong";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 35),
+                      Text(
+                        "password",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: controller.passwordController,
+                      decoration: InputDecoration(
+                        hintText: "Masukkan Password",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.length < 2) {
+                          return "password tidak boleh kosong";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 30),
                   Obx(() => controller.loading.value
                       ? CircularProgressIndicator()
                       : ElevatedButton(
