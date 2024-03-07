@@ -47,8 +47,7 @@ class RegisterController extends GetxController {
           "password": passwordController.text.toString(),
         });
       if (response.statusCode == 201) {
-        await StorageProvider.write(StorageKey.status, "logged");
-        Get.offAllNamed(Routes.LOGIN);
+        Get.back();
       } else {
         Get.snackbar("sorry", "Register Gagal", backgroundColor: Colors.orange);
       }
