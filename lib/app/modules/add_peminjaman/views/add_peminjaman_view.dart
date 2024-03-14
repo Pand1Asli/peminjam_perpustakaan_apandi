@@ -17,13 +17,15 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
       body: Center(
           child: Form(key: controller.formKey,child: Column(
             children: [
-              TextFormField(
+              DateTimePicker(
                 controller: controller.tanggalpinjamController,
-                decoration: InputDecoration(hintText: "Masukkan Tanggal Pinjam"),
-                validator: (value){
-                  if (value!.length < 2) {
-                    return "tanggal pinjam tidak boleh kosong";
-                  }
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                dateLabelText: 'Tanggal Pinjam',
+                dateMask: 'yyyy-MM-dd',
+                onChanged: (val) => print(val),
+                validator: (val) {
+                  print(val);
                   return null;
                 },
               ),

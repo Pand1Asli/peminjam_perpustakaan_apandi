@@ -11,8 +11,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF1A1A1A),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: ListView(
         children: [
           AppBar(
             backgroundColor: Colors.black,
@@ -91,9 +90,7 @@ class HomeView extends GetView<HomeController> {
             children: [
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {
-                    // Fungsi yang akan dijalankan ketika tombol pertama ditekan
-                  },
+                  onPressed: () => Get.toNamed(Routes.ADD_PEMINJAMAN),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 0, vertical: 17),
                     textStyle: TextStyle(fontSize: 23),
@@ -116,28 +113,65 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
           ),
-
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ClickableImage(
-                imagePath: 'assets/bukusejarahpenaklukanjawa.jpg',
-                onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                width: 150, // Sesuaikan ukuran gambar sesuai kebutuhan
-                height: 150,
-                // style: YourAdditionalStyle, // Anda dapat menambahkan style tambahan di sini
-              ),
-              SizedBox(width: 20),
-              ClickableImage(
-                imagePath: 'assets/petuahleluhurjawa.jpg',
-                onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                width: 150, // Sesuaikan ukuran gambar sesuai kebutuhan
-                height: 150,
-                // style: YourAdditionalStyle, // Anda dapat menambahkan style tambahan di sini
-              ),
-            ],
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 30),
+                Expanded(
+                  child: ClickableImage(
+                    imagePath: 'assets/bukusejarahpenaklukanjawa.jpg',
+                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
+                    width: 150,
+                    height: 350,
+                    // style: YourAdditionalStyle,
+                  ),
+                ),
+                SizedBox(width: 40),
+                Expanded(
+                  child: ClickableImage(
+                    imagePath: 'assets/petuahleluhurjawa.jpg',
+                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
+                    width: 150,
+                    height: 350,
+                    // style: YourAdditionalStyle,
+                  ),
+                ),
+                SizedBox(width: 30),
+              ],
+            ),
           ),
+          SizedBox(height: 40),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 30),
+                Expanded(
+                  child: ClickableImage(
+                    imagePath: 'assets/Asal-usulSejarahOrangJawa.jpg',
+                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
+                    width: 150,
+                    height: 350,
+                    // style: YourAdditionalStyle,
+                  ),
+                ),
+                SizedBox(width: 40),
+                Expanded(
+                  child: ClickableImage(
+                    imagePath: 'assets/PolitikDalamSejarahKerajaanJawa.jpeg',
+                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
+                    width: 150,
+                    height: 350,
+                    // style: YourAdditionalStyle,
+                  ),
+                ),
+                SizedBox(width: 30),
+              ],
+            ),
+          ),
+
 
         ],
       ),
