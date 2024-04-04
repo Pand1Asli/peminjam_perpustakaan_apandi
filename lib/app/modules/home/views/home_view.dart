@@ -131,7 +131,6 @@ class HomeView extends GetView<HomeController> {
           child: Text('Semua Buku'),
         ),
       ),
-
     );
   }
 }
