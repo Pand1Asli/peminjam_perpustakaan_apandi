@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -113,65 +114,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
           ),
-          SizedBox(height: 20),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(width: 30),
-                Expanded(
-                  child: ClickableImage(
-                    imagePath: 'assets/bukusejarahpenaklukanjawa.jpg',
-                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                    width: 150,
-                    height: 350,
-                    // style: YourAdditionalStyle,
-                  ),
-                ),
-                SizedBox(width: 40),
-                Expanded(
-                  child: ClickableImage(
-                    imagePath: 'assets/petuahleluhurjawa.jpg',
-                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                    width: 150,
-                    height: 350,
-                    // style: YourAdditionalStyle,
-                  ),
-                ),
-                SizedBox(width: 30),
-              ],
-            ),
-          ),
-          SizedBox(height: 40),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(width: 30),
-                Expanded(
-                  child: ClickableImage(
-                    imagePath: 'assets/Asal-usulSejarahOrangJawa.jpg',
-                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                    width: 150,
-                    height: 350,
-                    // style: YourAdditionalStyle,
-                  ),
-                ),
-                SizedBox(width: 40),
-                Expanded(
-                  child: ClickableImage(
-                    imagePath: 'assets/PolitikDalamSejarahKerajaanJawa.jpeg',
-                    onClick: () => Get.toNamed(Routes.PEMINJAMAN),
-                    width: 150,
-                    height: 350,
-                    // style: YourAdditionalStyle,
-                  ),
-                ),
-                SizedBox(width: 30),
-              ],
-            ),
-          ),
-
+          
 
         ],
       ),
@@ -198,27 +141,35 @@ class ClickableImage extends StatelessWidget {
   final VoidCallback onClick;
   final double width;
   final double height;
+  final double borderRadius;
+  final Color borderColor;
 
   const ClickableImage({
     required this.imagePath,
     required this.onClick,
     this.width = 100,
     this.height = 100,
+    this.borderRadius = 30,
+    this.borderColor = Colors.transparent,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onClick,
-      child: Image.asset(
-        imagePath,
-        width: width, // Sesuaikan ukuran gambar sesuai kebutuhan Anda
-        height: height,
-        fit: BoxFit.cover, // Untuk menyesuaikan gambar dengan ukuran yang diberikan
-        // Menambah style border radius agar gambar memiliki sudut melengkung
-        // Sesuaikan dengan kebutuhan Anda
-        // borderRadius: BorderRadius.circular(10),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius),
+          border: Border.all(color: borderColor),
+        ),
+        child: Image.asset(
+          imagePath,
+          width: width,
+          height: height,
+          fit: BoxFit.cover,
+        ),
       ),
+
     );
   }
 }
