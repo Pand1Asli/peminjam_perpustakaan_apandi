@@ -27,7 +27,7 @@ class IntroView extends GetView<IntroController> {
               ),
               SizedBox(height: 40),
               ElevatedButton(
-                onPressed: () => Get.toNamed(Routes.HOME),
+                onPressed: () => Get.toNamed(Routes.LOGIN),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   textStyle: TextStyle(fontSize: 40),
