@@ -46,23 +46,12 @@ class LoginView extends GetView<LoginController> {
                   SizedBox(height: 15.0),
                   TextFormField(
                     controller: controller.passwordController,
-                    obscureText: !controller.isPasswordVisible,
                     decoration: InputDecoration(
                       hintText: "Masukkan Password",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          controller.togglePasswordVisibility();
-                        },
-                        child: Icon(
-                          controller.isPasswordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
                       ),
                     ),
                     validator: (value) {

@@ -79,9 +79,4 @@ class LoginController extends GetxController {
 
   void increment() => count.value++;
 
-  bool isPasswordVisible = false;
-
-  void togglePasswordVisibility() {
-    isPasswordVisible = !isPasswordVisible;
-  }
 }
