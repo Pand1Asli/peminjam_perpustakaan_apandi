@@ -12,8 +12,28 @@ class PeminjamanView extends GetView<PeminjamanController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PeminjamanView'),
-        centerTitle: true,
+        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Get.toNamed(Routes.HOME),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Row(
+            children: [
+              Text(
+                'Semua Buku', // Add your text here
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(width: 10),
+            ],
+          ),
+        ),
       ),
         floatingActionButton: FloatingActionButton(
           onPressed: ()=>Get.toNamed(Routes.PEMINJAMAN),child: Icon(Icons.add),
@@ -25,7 +45,9 @@ class PeminjamanView extends GetView<PeminjamanController> {
               return ListTile(
                 title: Text("${dataPinjam.book?.judul}"),
                 subtitle: Text(
-                    "Tanggal Pinjam: ${dataPinjam.tanggalPinjam}\n Tanggal Kembali: ${dataPinjam.tanggalKembali}\n ${dataPinjam.status}"),
+                    "Tanggal Pinjam: ${dataPinjam.tanggalPinjam}\n "
+                        "Tanggal Kembali: ${dataPinjam.tanggalKembali}\n "
+                        "${dataPinjam.status}"),
               );
             },
             separatorBuilder: (context, index){

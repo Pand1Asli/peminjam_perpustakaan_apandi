@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
@@ -86,17 +88,23 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
           ),
+          SizedBox(height: 10),
           Row(
             children: [
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () => Get.toNamed(Routes.ADD_PEMINJAMAN),
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 0, vertical: 17),
-                    textStyle: TextStyle(fontSize: 23),
                     backgroundColor: Colors.black,
                   ),
-                  child: Text('Kategori'),
+                  child: Text(
+                    'Kategori',
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: Colors.white, // Set the text color to white
+                    ),
+                  ),
                 ),
               ),
               SizedBox(width: 10),
@@ -105,68 +113,36 @@ class HomeView extends GetView<HomeController> {
                   onPressed: () => Get.toNamed(Routes.PEMINJAMAN),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 0, vertical: 17),
-                    textStyle: TextStyle(fontSize: 23),
                     backgroundColor: Colors.black,
                   ),
-                  child: Text('Koleksi'),
+                  child: Text(
+                    'Koleksi',
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: Colors.white, // Set the text color to white
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
         ],
       ),
-
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 23,vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 23, vertical: 10),
         child: ElevatedButton(
           onPressed: () => Get.toNamed(Routes.BOOK),
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-            textStyle: TextStyle(fontSize: 25),
+            textStyle: TextStyle(fontSize: 25, color: Colors.white), // Tambahkan warna putih di sini
             backgroundColor: Color(0xFFFF7A00),
           ),
-          child: Text('Semua Buku'),
+          child: Text(
+            'Semua Buku',
+            style: TextStyle(color: Colors.white), // Tambahkan warna putih di sini juga
+          ),
         ),
       ),
     );
   }
 }
-
-class ClickableImage extends StatelessWidget {
-  final String imagePath;
-  final VoidCallback onClick;
-  final double width;
-  final double height;
-  final double borderRadius;
-  final Color borderColor;
-
-  const ClickableImage({
-    required this.imagePath,
-    required this.onClick,
-    this.width = 100,
-    this.height = 100,
-    this.borderRadius = 30,
-    this.borderColor = Colors.transparent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onClick,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius),
-          border: Border.all(color: borderColor),
-        ),
-        child: Image.asset(
-          imagePath,
-          width: width,
-          height: height,
-          fit: BoxFit.cover,
-        ),
-      ),
-
-    );
-  }
-}
-

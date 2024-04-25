@@ -1,4 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+
+import '../../../data/constant/endpoint.dart';
+import '../../../data/model/response_book.dart';
+import '../../../data/provider/api_provider.dart';
 
 class HomeController extends GetxController {
 
