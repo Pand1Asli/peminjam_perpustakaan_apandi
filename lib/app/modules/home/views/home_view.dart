@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../data/model/response_book.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
@@ -22,6 +20,12 @@ class HomeView extends GetView<HomeController> {
               padding: const EdgeInsets.only(left: 5),
               child: Row(
                 children: [
+                    IconButton(
+                      icon: Icon(Icons.person,),
+                      onPressed: () {
+                      },
+                    ),
+                  SizedBox(width: 10),
                   Text(
                     'PEA',
                     style: TextStyle(
@@ -38,15 +42,6 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
             ),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  // Fungsi yang akan dijalankan ketika tombol pencarian ditekan
-                  // Anda dapat menambahkan logika untuk pencarian di sini
-                },
-              ),
-            ],
           ),
           Stack(
             children: <Widget>[

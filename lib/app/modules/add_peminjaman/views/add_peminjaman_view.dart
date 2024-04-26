@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/add_peminjaman_controller.dart';
 
 class AddPeminjamanView extends GetView<AddPeminjamanController> {
@@ -10,8 +11,29 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF1A1A1A),
       appBar: AppBar(
-        title: Text('${Get.parameters['judul']}'),
+        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Get.toNamed(Routes.BOOK),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Row(
+            children: [
+              Text('Buku ''${Get.parameters['judul']}',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(width: 10),
+            ],
+          ),
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -21,8 +43,9 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                 controller: controller.tanggalpinjamController,
                 firstDate: DateTime(2000),
                 lastDate: DateTime(2100),
-                dateLabelText: 'Tanggal Pinjam',
+                dateLabelText: ('Tanggal Pinjam'),
                 dateMask: 'yyyy-MM-dd',
+                style: TextStyle(color: Colors.white),
                 onChanged: (val) => print(val),
                 validator: (val) {
                   print(val);
@@ -35,6 +58,7 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
                 lastDate: DateTime(2100),
                 dateLabelText: 'Tanggal Kembali',
                 dateMask: 'yyyy-MM-dd',
+                style: TextStyle(color: Colors.white),
                 onChanged: (val) => print(val),
                 validator: (val) {
                   print(val);

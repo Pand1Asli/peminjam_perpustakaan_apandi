@@ -12,6 +12,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
 import '../modules/peminjaman/views/peminjaman_view.dart';
+import '../modules/profil/bindings/profil_binding.dart';
+import '../modules/profil/views/profil_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.INTRO,
       page: () => const IntroView(),
       binding: IntroBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFIL,
+      page: () => const ProfilView(),
+      binding: ProfilBinding(),
     ),
   ];
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../data/model/response_pinjam.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/peminjaman_controller.dart';
@@ -11,6 +9,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF1A1A1A),
       appBar: AppBar(
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
@@ -35,25 +34,29 @@ class PeminjamanView extends GetView<PeminjamanController> {
           ),
         ),
       ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: ()=>Get.toNamed(Routes.PEMINJAMAN),child: Icon(Icons.add),
-        ),
-        body: controller.obx((state) => ListView.separated(
-            itemCount: state!.length,
-            itemBuilder: (context, index){
-              DataPinjam dataPinjam = state[index];
-              return ListTile(
-                title: Text("${dataPinjam.book?.judul}"),
-                subtitle: Text(
-                    "Tanggal Pinjam: ${dataPinjam.tanggalPinjam}\n "
-                        "Tanggal Kembali: ${dataPinjam.tanggalKembali}\n "
-                        "${dataPinjam.status}"),
-              );
-            },
-            separatorBuilder: (context, index){
-              return Divider();
-            }
-        ))
+      body: controller.obx((state) => ListView.separated(
+        itemCount: state!.length,
+        itemBuilder: (context, index) {
+          DataPinjam dataPinjam = state[index];
+          return ListTile(
+            title: Text(
+              "${dataPinjam.book?.judul}",
+              style: TextStyle(color: Colors.white), // Set text color to white
+            ),
+            subtitle: Text(
+              "Tanggal Pinjam: ${dataPinjam.tanggalPinjam}\n "
+                  "Tanggal Kembali: ${dataPinjam.tanggalKembali}\n "
+                  "${dataPinjam.status}",
+              style: TextStyle(color: Colors.white), // Set text color to white
+            ),
+          );
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            color: Colors.white, // Set separator color to white
+          );
+        },
+      )),
     );
   }
 }
