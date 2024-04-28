@@ -8,6 +8,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
+import '../modules/kategori/bindings/kategori_binding.dart';
+import '../modules/kategori/views/kategori_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.PROFIL,
       page: () => const ProfilView(),
       binding: ProfilBinding(),
+    ),
+    GetPage(
+      name: _Paths.KATEGORI,
+      page: () => const KategoriView(),
+      binding: KategoriBinding(),
     ),
   ];
 }

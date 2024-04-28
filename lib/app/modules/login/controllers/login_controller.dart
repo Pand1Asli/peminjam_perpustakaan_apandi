@@ -16,6 +16,7 @@ class LoginController extends GetxController {
   final isPasswordInvisible = true;
   final count = 0.obs;
 
+
   @override
   void onInit() {
     super.onInit();

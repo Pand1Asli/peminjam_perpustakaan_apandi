@@ -11,6 +11,7 @@ abstract class Routes {
   static const ADD_PEMINJAMAN = _Paths.ADD_PEMINJAMAN;
   static const INTRO = _Paths.INTRO;
   static const PROFIL = _Paths.PROFIL;
+  static const KATEGORI = _Paths.KATEGORI;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ADD_PEMINJAMAN = '/add-peminjaman';
   static const INTRO = '/intro';
   static const PROFIL = '/profil';
+  static const KATEGORI = '/kategori';
 }
